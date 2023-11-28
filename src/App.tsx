@@ -1,25 +1,17 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { useFlags, useFlagsmith } from 'flagsmith/react';
 
 function App() {
+
+  const flags = useFlags(['feature_1','feature_free_plan']); // only causes re-render if specified flag values / traits change
+  const flagsmith = useFlagsmith();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  <div className="App">
+    feature_1_value: {flags.feature_1.value}
+    feature_free_plan: {flags.feature_free_plan.enabled}
+  </div>
   );
 }
 
