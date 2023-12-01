@@ -1,21 +1,17 @@
 
 import { Card } from 'flowbite-react';
 
-type CardProps = {
-  price: number
-}
-
-export default function CardComponent(props: CardProps) {
+export default function CardComponent({name, price}: {name: string, price: number}) {
   return (
     <Card className='max-w-sm'>
-      <h5 className="mb-4 text-xl font-medium text-gray-500 dark:text-gray-400">Standard plan</h5>
-      {props.price === 0 ? 
+      <h5 className="mb-4 text-xl font-medium text-gray-500 dark:text-gray-400">{name}</h5>
+      {price === 0 ? 
       <div className="flex items-baseline text-gray-900 dark:text-white">
         <span className="text-5xl font-extrabold tracking-tight">FREE</span>
       </div> : 
       <div className="flex items-baseline text-gray-900 dark:text-white">
         <span className="text-3xl font-semibold">$</span>
-        <span className="text-5xl font-extrabold tracking-tight">{props.price}</span>
+        <span className="text-5xl font-extrabold tracking-tight">{price}</span>
         <span className="ml-1 text-xl font-normal text-gray-500 dark:text-gray-400">/month</span>
       </div> }
       <ul className="my-7 space-y-5">
