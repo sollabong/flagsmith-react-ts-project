@@ -16,16 +16,17 @@ function App() {
     setIsFreePlanEnabled(flags.feature_free_plan.enabled)
   }, [flags, flagsmith]);
 
+  
   return (
   <div className="root">
     <section className="bg-white dark:bg-gray-900 h-screen">
         <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
             <HeroComponent></HeroComponent>
             <div id="pricing-table" className="space-y-8 lg:grid lg:grid-cols-4 sm:gap-6 xl:gap-10 lg:space-y-0">
-                {isFreePlanEnabled ? <CardComponent></CardComponent> : "ASD"}
-                <CardComponent></CardComponent>
-                <CardComponent></CardComponent>
-                <CardComponent></CardComponent>
+                {isFreePlanEnabled ? <CardComponent price= {0}></CardComponent> : "ASD"}
+                <CardComponent price= {19}></CardComponent>
+                <CardComponent price= {29}></CardComponent>
+                <CardComponent price= {49}></CardComponent>
             </div>
         </div>
       </section>
